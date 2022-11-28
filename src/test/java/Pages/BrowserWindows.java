@@ -33,7 +33,8 @@ public class BrowserWindows extends BasePage {
 
         driver.switchTo().window(list.get(2)).close();
 
-       // driver.switchTo().window(list.get(1)).close();
+        driver.switchTo().window(list.get(1));
+
 
 
         return null;

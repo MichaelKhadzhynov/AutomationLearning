@@ -15,13 +15,6 @@ public class Tests extends BaseTest {
 
     }
 
-    @Test(testName = "Тест №2 BrowserWindows", priority = 6)
-    public void browserwindow() throws InterruptedException {
-        driver.navigate().to("https://demoqa.com/browser-windows/");
-        BrowserWindows browserWindows = new BrowserWindows();
-        browserWindows.newTab();
-    }
-
     @Test(testName = "Test №3 Navigation Commands", priority = 2)
     public void navigationCommands(){
         driver.get("https://demoqa.com/login");
@@ -47,6 +40,29 @@ public class Tests extends BaseTest {
     public void DropDwn(){
         DropDown dropDown = new DropDown();
         dropDown.dropDown();
+    }
+
+    @Test(testName = "Тест №6 WDWait", priority = 6)
+    public void WebdriverWait(){
+        DriverWait driverWait = new DriverWait();
+        driverWait.DW();
+
+    }
+
+    @Test(testName = "Тест №7 WDWait", priority = 7)
+    public void AlertTest() throws InterruptedException {
+        AlertsPopups ap = new AlertsPopups();
+        ap.alertsPopups();
+
+    }
+
+
+
+    @Test(testName = "Тест №2 BrowserWindows", priority = 20)
+    public void browserwindow() throws InterruptedException {
+        driver.navigate().to("https://demoqa.com/browser-windows/");
+        BrowserWindows browserWindows = new BrowserWindows();
+        browserWindows.newTab();
     }
 
 }

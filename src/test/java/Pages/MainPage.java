@@ -14,7 +14,7 @@ public class MainPage extends BasePage {
         MainPage mainPage = new MainPage();
         mainPage.login.sendKeys("testuser");
         mainPage.password.sendKeys("Password@123");
-        mainPage.loginButton.click();
+        mainPage.loginButton.submit();
         return mainPage;
 
     }
