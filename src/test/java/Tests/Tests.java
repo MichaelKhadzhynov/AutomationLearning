@@ -46,16 +46,20 @@ public class Tests extends BaseTest {
     public void WebdriverWait(){
         DriverWait driverWait = new DriverWait();
         driverWait.DW();
-
     }
 
     @Test(testName = "Тест №7 WDWait", priority = 7)
     public void AlertTest() throws InterruptedException {
         AlertsPopups ap = new AlertsPopups();
         ap.alertsPopups();
-
     }
 
+    @Test(testName = "Тест №8 WDWait", priority = 8)
+    public void Frames(){
+        Frames fr = new Frames();
+        fr.frames();
+        fr.nestedFrames();
+    }
 
 
     @Test(testName = "Тест №2 BrowserWindows", priority = 20)

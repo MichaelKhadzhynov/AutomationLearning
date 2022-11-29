@@ -1,6 +1,7 @@
 package Pages;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,7 +21,7 @@ public class AlertsPopups extends BasePage {
     @FindBy(id = "confirmButton")
     private WebElement confirmButton;
 
-    @FindBy(id = "promtButton")
+    @FindBy(xpath = "//button[@id = \"promtButton\"]")
     private WebElement promtButton;
 
     public AlertsPopups() {
@@ -29,6 +30,8 @@ public class AlertsPopups extends BasePage {
 
     public AlertsPopups alertsPopups() throws InterruptedException {
         driver.get("https://demoqa.com/alerts");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 200)");
 
         alertButton.click();
         Alert alButton = driver.switchTo().alert();
@@ -52,17 +55,19 @@ public class AlertsPopups extends BasePage {
         Thread.sleep(2000);
         confButton.dismiss();
 
+
         WebDriverWait promwait = new WebDriverWait(driver, Duration.ofSeconds(5));
         promwait.until(ExpectedConditions.elementToBeClickable(promtButton));
         promtButton.click();
         Alert prButton = driver.switchTo().alert();
         prButton.sendKeys("Nik");
-        Thread.sleep(2000);
         prButton.accept();
+        promwait.until(ExpectedConditions.elementToBeClickable(promtButton));
         promtButton.click();
         Thread.sleep(2000);
         System.out.println(prButton.getText());
         prButton.dismiss();
+
 
         return this;
     }
