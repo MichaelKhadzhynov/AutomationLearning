@@ -48,17 +48,29 @@ public class Tests extends BaseTest {
         driverWait.DW();
     }
 
-    @Test(testName = "Тест №7 WDWait", priority = 7)
+    @Test(testName = "Тест №7 AlertTest", priority = 7)
     public void AlertTest() throws InterruptedException {
         AlertsPopups ap = new AlertsPopups();
         ap.alertsPopups();
     }
 
-    @Test(testName = "Тест №8 WDWait", priority = 8)
+    @Test(testName = "Тест №8 Frames", priority = 8)
     public void Frames(){
         Frames fr = new Frames();
         fr.frames();
         fr.nestedFrames();
+    }
+
+    @Test(testName = "Тест №9 RightDoubleClick", priority = 9)
+    public void RightDoubleClick(){
+        RightDoubleClick rdc = new RightDoubleClick();
+        rdc.rightDoubleClick();
+    }
+
+    @Test(testName = "Тест №10 DragAndDrop", priority = 9)
+    public void DragAndDrop(){
+        DragAndDrop dd = new DragAndDrop();
+        dd.dragAndDrop();
     }
 
 

@@ -5,22 +5,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Frames extends BasePage{
+public class Frames extends BasePage {
     @FindBy(id = "frame1")
+
     private WebElement frame1;
 
     @FindBy(id = "sampleHeading")
+
     private WebElement sampleHeading;
 
     @FindBy(id = "frame2")
+
     private WebElement frame2;
 
 
-    public Frames(){
+    public Frames() {
         PageFactory.initElements(driver, this);
     }
 
-    public Frames frames (){
+    public Frames frames() {
         driver.get("https://demoqa.com/frames");
         driver.switchTo().frame(frame1);
         System.out.println(sampleHeading.getText());
@@ -30,7 +33,7 @@ public class Frames extends BasePage{
         return this;
     }
 
-    public Frames nestedFrames(){
+    public Frames nestedFrames() {
         driver.get("https://demoqa.com/nestedframes");
         driver.switchTo().frame(frame1);
         String b = driver.findElement(By.tagName("body")).getText();
@@ -45,6 +48,7 @@ public class Frames extends BasePage{
                 .findElement(By.xpath("//div[contains(text(), 'Sample Nested Iframe page.')]"))
                 .getText();
         System.out.println(b3);
+
         return this;
     }
 }
