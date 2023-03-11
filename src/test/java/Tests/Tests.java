@@ -81,4 +81,10 @@ public class Tests extends BaseTest {
         browserWindows.newTab();
     }
 
+
+    @Test(testName = "Тест №2 Browser", priority = 20)
+    public void browser() throws InterruptedException {
+        System.out.println("Tests.browser");
+    }
+
 }
