@@ -84,7 +84,8 @@ public class Tests extends BaseTest {
 
     @Test(testName = "Тест №2 Browser", priority = 20)
     public void browser() throws InterruptedException {
-        System.out.println("Tests.browser");
+        
+        System.out.println("Tests");
     }
 
 }
