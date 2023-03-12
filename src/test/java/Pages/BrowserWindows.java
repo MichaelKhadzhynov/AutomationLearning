@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class BrowserWindows extends BasePage {
         windowButton.sendKeys(Keys.COMMAND, ENTER);
         windowMassage.sendKeys(Keys.COMMAND, ENTER);
 
-        List<String> list = driver.getWindowHandles().stream().collect(Collectors.toList());
+        List<String> list = new ArrayList<>(driver.getWindowHandles());
 
         driver.switchTo().window(list.get(1));
 
