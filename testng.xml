@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/michael/div/IntelejIDEA Project/SeleniumLearning">
+    <test verbose="2" preserve-order="true" name="/Users/michael/div/IntellijIDEAProject/SeleniumLearning">
         <classes>
-            <class name="Tests.Tests">
+            <class name="tests.MyTest">
                 <methods>
-                    <include name="fieldsFill"/>
-                    <include name="browserwindow"/>
-                    <include name="navigationCommands"/>
-                    <include name="CheckBox"/>
-                    <include name="RadioButton"/>
-                    <include name="DropDwn"/>
+                    <include name="testAlerts"/>
                 </methods>
             </class>
         </classes>
