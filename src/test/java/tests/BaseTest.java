@@ -1,5 +1,7 @@
 package tests;
 
+import enums.BrowsersType;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeMethod;
@@ -9,13 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import utils.DriverNavigation;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
-enum Browsers {
-    SAFARI, CHROME, FIREFOX;
-}
 
 public abstract class BaseTest {
 
@@ -26,15 +24,11 @@ public abstract class BaseTest {
 
     @BeforeTest
     public void beforeTest() {
-
-        driver = setDriver(Browsers.CHROME);
-
-        BasePage basePage = new BasePage();
-        basePage.setDriver(driver);
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
+        setDriver(BrowsersType.CHROME);
+        setDriverBasePage();
+        DriverNavigation.getInstance().setDriver(driver);
+        setWindowManage();
+        setImplicitlyWait(20);
     }
 
     @BeforeMethod
@@ -43,33 +37,54 @@ public abstract class BaseTest {
     }
 
     @AfterTest
-    public void quitDriver() {
-        driver.quit();
+    public void afterTest() {
+        driverQuit();
     }
+
 
     public WebDriver getDriver() {
         return driver;
     }
 
-    public void open(String url) {
+    private void open(String url) {
         driver.get(url);
     }
 
-    private WebDriver setDriver(Browsers driverType) {
+    private WebDriver setDriver(BrowsersType driverType) {
+        driver = null;
         switch (driverType) {
 
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
+                driver = new ChromeDriver();
+                return driver;
 
             case SAFARI:
                 WebDriverManager.safaridriver().setup();
-                return new SafariDriver();
+                driver = new SafariDriver();
+                return driver;
 
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                return new FirefoxDriver();
+                driver = new FirefoxDriver();
+                return driver;
         }
         return null;
+    }
+
+    private void driverQuit(){
+        driver.quit();
+    }
+
+    private BasePage setDriverBasePage(){
+        return new BasePage(driver);
+    }
+
+    private void setWindowManage(){
+        driver.manage().window().maximize();
+    }
+
+    private void setImplicitlyWait(int seconds){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 }

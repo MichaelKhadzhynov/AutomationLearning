@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/michael/div/IntellijIDEAProject/SeleniumLearning">
         <classes>
-            <class name="tests.MyTest">
+            <class name="tests.BookStory">
                 <methods>
                     <include name="testAlerts"/>
                 </methods>

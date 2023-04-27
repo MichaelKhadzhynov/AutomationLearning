@@ -1,8 +1,8 @@
-package Pages;
+package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class PracticeFormPage extends BasePage {
 
@@ -45,10 +45,10 @@ public class PracticeFormPage extends BasePage {
     @FindBy(xpath = "//button[@id = \"submit\"]")
     private WebElement submit;
 
-    public PracticeFormPage() {
-        driver.get("https://demoqa.com/automation-practice-form");
-        PageFactory.initElements(driver, this);
+    public PracticeFormPage(WebDriver driver) {
+        super(driver);
     }
+
 
     public PracticeFormPage fillFields() {
         name.sendKeys("Michael");

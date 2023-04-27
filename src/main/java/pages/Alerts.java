@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AlertsPopups extends BasePage {
+public class Alerts extends BasePage {
 
     @FindBy(xpath = "//button[@id='alertButton']")
     private WebElement simpleAlertButton;
@@ -27,25 +27,25 @@ public class AlertsPopups extends BasePage {
     @FindBy(xpath = "//button[@id = \"promtButton\"]")
     private WebElement promtButton;
 
-    public AlertsPopups(WebDriver driver) {
+    public Alerts(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
 
-    public AlertsPopups scrollTo() {
+    public Alerts scrollTo() {
         driver.get("https://demoqa.com/alerts");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 200)");
         return this;
     }
 
-    public AlertsPopups clickSimpleAlertButton() {
+    public Alerts clickSimpleAlertButton() {
         simpleAlertButton.click();
         return this;
     }
 
-    public AlertsPopups acceptDismissAlert(AcceptVariants acceptVariants) {
+    public Alerts acceptDismissAlert(AcceptVariants acceptVariants) {
         Alert alert = driver.switchTo().alert();
         if(acceptVariants == AcceptVariants.ACCEPT)
         alert.accept();
@@ -53,54 +53,54 @@ public class AlertsPopups extends BasePage {
         return this;
     }
 
-    public AlertsPopups clickTimerAlertButton() {
+    public Alerts clickTimerAlertButton() {
         timerAlertButton.click();
         return this;
     }
 
-    public AlertsPopups waitAlertIsPresent(int seconds) {
+    public Alerts waitAlertIsPresent(int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.alertIsPresent());
         return this;
     }
 
-    public AlertsPopups clickConfirmationButton(){
+    public Alerts clickConfirmationButton(){
         confirmButton.click();
         return this;
     }
 
-    public AlertsPopups clickPromptButton(){
+    public Alerts clickPromptButton(){
         promtButton.click();
         return this;
     }
 
-    public AlertsPopups waitPromtButtonToBeClickable(int seconds){
+    public Alerts waitPromtButtonToBeClickable(int seconds){
         WebDriverWait promwait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         promwait.until(ExpectedConditions.elementToBeClickable(promtButton));
         return this;
     }
 
-    public AlertsPopups typeTextInAlert(String text){
+    public Alerts typeTextInAlert(String text){
         Alert prButton = driver.switchTo().alert();
         prButton.sendKeys(text);
         return this;
     }
 
-    public AlertsPopups testSimpleAlert(){
+    public Alerts testSimpleAlert(){
         scrollTo();
         clickSimpleAlertButton();
         acceptDismissAlert(AcceptVariants.ACCEPT);
         return this;
     }
 
-    public AlertsPopups testTimerAlert(){
+    public Alerts testTimerAlert(){
         clickTimerAlertButton();
         waitAlertIsPresent(10);
         acceptDismissAlert(AcceptVariants.ACCEPT);
         return this;
     }
 
-    public AlertsPopups testConfirmationAlert(){
+    public Alerts testConfirmationAlert(){
         clickConfirmationButton();
         acceptDismissAlert(AcceptVariants.ACCEPT);
         clickSimpleAlertButton();
@@ -108,7 +108,7 @@ public class AlertsPopups extends BasePage {
         return this;
     }
 
-    public AlertsPopups testPromptAlert(){
+    public Alerts testPromptAlert(){
         waitPromtButtonToBeClickable(5);
         clickPromptButton();
         typeTextInAlert("Text");
