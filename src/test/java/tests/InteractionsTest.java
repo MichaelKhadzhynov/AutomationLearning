@@ -5,7 +5,7 @@ import enums.Categories;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Droppable;
+import categories.Droppable;
 
 public class InteractionsTest extends BaseTest{
 

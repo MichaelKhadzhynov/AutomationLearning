@@ -4,7 +4,7 @@ import components.LeftPannel;
 import enums.Categories;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import pages.SelectMenu;
+import categories.SelectMenu;
 
 public class WidgetsTest extends BaseTest{
 

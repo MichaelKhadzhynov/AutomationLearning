@@ -5,9 +5,9 @@ import enums.Categories;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Alerts;
-import pages.BrowserWindows;
-import pages.Frames;
+import categories.Alerts;
+import categories.BrowserWindows;
+import categories.Frames;
 
 public class AlertFrameWindowTest extends BaseTest {
     private static final Logger LOGGER = Logger.getLogger(AlertFrameWindowTest.class);

@@ -1,4 +1,4 @@
-package pages;
+package categories;
 
 import enums.Categories;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package pages;
+package categories;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

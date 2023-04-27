@@ -5,10 +5,10 @@ import enums.Categories;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Buttons;
-import pages.CheckBox;
-import pages.DynamicProperties;
-import pages.RadioButton;
+import categories.Buttons;
+import categories.CheckBox;
+import categories.DynamicProperties;
+import categories.RadioButton;
 
 public class ElementsTest extends BaseTest{
     private static final Logger LOGGER = Logger.getLogger(ElementsTest.class);

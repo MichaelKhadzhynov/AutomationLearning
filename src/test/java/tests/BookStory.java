@@ -2,7 +2,7 @@ package tests;
 
 
 import org.apache.log4j.Logger;
-import pages.*;
+import categories.*;
 import org.testng.annotations.Test;
 import utils.DriverNavigation;
 

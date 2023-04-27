@@ -1,4 +1,4 @@
-package pages;
+package categories;
 
 import enums.AcceptVariants;
 import org.openqa.selenium.Alert;

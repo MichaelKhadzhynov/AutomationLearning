@@ -1,4 +1,4 @@
-package pages;
+package categories;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
