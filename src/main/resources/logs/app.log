@@ -1,0 +1,17 @@
+2023-04-28 14:08:50 INFO  AlertFrameWindowTest:34 - This is a sample page
+2023-04-28 14:08:50 ERROR AlertFrameWindowTest:40 - This is a sample page
+2023-04-29 10:40:05 INFO  BookStory:23 - id: 1.0
+ name: name1
+ password: pass1
+2023-04-29 10:40:07 INFO  BookStory:23 - id: 2.0
+ name: name2
+ password: pass2
+2023-04-29 10:40:09 INFO  BookStory:23 - id: 3.0
+ name: name3
+ password: pass3
+2023-04-29 10:40:11 INFO  BookStory:23 - id: 4.0
+ name: name4
+ password: pass4
+2023-04-29 10:40:13 INFO  BookStory:23 - id: 5.0
+ name: name5
+ password: pass5
