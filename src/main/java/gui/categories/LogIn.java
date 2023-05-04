@@ -25,6 +25,13 @@ public class LogIn extends BasePage {
     @FindBy(xpath =".//div[@class=\"header-wrapper\"]")
     private List<WebElement> categoriesGroupList;
 
+    @FindBy(xpath ="//p[@id='name']")
+    private WebElement errorLogInMassage;
+
+    public WebElement getErrorLogInMassage() {
+        return errorLogInMassage;
+    }
+
     public LogIn clickCategory(Categories categories){
         categoriesGroupList.get(categories.getCategory()).click();
         return this;
@@ -33,6 +40,9 @@ public class LogIn extends BasePage {
     public LogIn(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+    }
+
+    public LogIn() {
     }
 
     public LogIn typeLogIn(String login){
@@ -46,9 +56,10 @@ public class LogIn extends BasePage {
     }
 
     public LogIn clickLogInButton(){
-        loginButton.submit();
+        loginButton.click();
         return this;
     }
+
 
     public LogIn logInMainPage(String login, String password) {
         typeLogIn(login);
@@ -57,9 +68,22 @@ public class LogIn extends BasePage {
         return this;
     }
 
+    public LogIn logIn(String login, String password) {
+        typeLogIn(login);
+        typePassword(password);
+        return this;
+    }
+
     public LogIn clickNewUserButton(){
         newUserButton.click();
         return this;
     }
 
+    public WebElement getLogIn() {
+        return logIn;
+    }
+
+    public WebElement getPassword() {
+        return password;
+    }
 }

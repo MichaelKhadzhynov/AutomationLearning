@@ -1,6 +1,9 @@
 package gui.tests;
 
 import gui.enums.BrowsersType;
+import io.cucumber.java.StepDefinitionAnnotation;
+import io.cucumber.java.StepDefinitionAnnotations;
+import io.cucumber.java.en.Given;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeMethod;
@@ -45,11 +48,12 @@ public abstract class BaseTest {
         return driver;
     }
 
-    private void open(String url) {
+    public void open(String url) {
         driver.get(url);
     }
 
-    private WebDriver setDriver(BrowsersType driverType) {
+
+    public WebDriver setDriver(BrowsersType driverType) {
         driver = null;
         switch (driverType) {
 
@@ -86,4 +90,5 @@ public abstract class BaseTest {
     private void setImplicitlyWait(int seconds){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
+
 }

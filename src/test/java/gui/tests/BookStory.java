@@ -2,8 +2,12 @@ package gui.tests;
 
 
 import gui.categories.LogIn;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import gui.categories.*;
+import org.bouncycastle.jcajce.provider.digest.MD5;
 import org.testng.annotations.Test;
 import gui.utils.DriverNavigation;
 import utils.ExcelDataProviders;
@@ -11,6 +15,7 @@ import utils.ExcelDataProviders;
 public class BookStory extends BaseTest {
 
     private static final Logger LOGGER = Logger.getLogger(BookStory.class);
+
 
     @Test(testName = "MainePage logIn",
             dataProvider = "usersData",
@@ -34,5 +39,7 @@ public class BookStory extends BaseTest {
         DriverNavigation.getInstance().navigationRefresh();
 
     }
+
+
 
 }
