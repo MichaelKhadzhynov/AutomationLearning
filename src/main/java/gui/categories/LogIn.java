@@ -60,7 +60,6 @@ public class LogIn extends BasePage {
         return this;
     }
 
-
     public LogIn logInMainPage(String login, String password) {
         typeLogIn(login);
         typePassword(password);

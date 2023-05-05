@@ -3,6 +3,7 @@ package cucumber_tests;
 import gui.categories.BasePage;
 import gui.categories.LogIn;
 import gui.utils.DriverNavigation;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,12 +16,14 @@ import org.testng.Assert;
 
 import java.io.Reader;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 public class LogInFormDef extends BasePage {
 
     private final LogIn logIn = new LogIn(driver);
 
-    @Given("log in {string}, {string}")
+    @When("log in {string}, {string}")
     public void logIn(String nickName, String password) {
         logIn.logIn(nickName, password);
     }
@@ -65,5 +68,17 @@ public class LogInFormDef extends BasePage {
     @And("refresh page")
     public void refreshPage() {
         DriverNavigation.getInstance().navigationRefresh();
+    }
+
+    @Given("log in {int}:")
+    public void logIn(Integer id, DataTable dataTable) {
+        List<Map<String,String>> mapList = dataTable.asMaps();
+        logIn.logIn(mapList.get(id).get("username"), mapList.get(id).get("password"));
+        System.out.println(mapList);
+    }
+
+    @Given("registration form")
+    public void getRegistrationForm(){
+        logIn.clickNewUserButton();
     }
 }

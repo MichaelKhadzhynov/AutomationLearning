@@ -17,6 +17,5 @@ public class Hook extends BaseTest {
     @After
     public void quitDriver(){
         super.afterTest();
-
     }
 }
