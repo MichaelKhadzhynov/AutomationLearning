@@ -22,7 +22,6 @@ public class NewUserFormDef extends BasePage {
         newUserForm.scrollByJs(200).clickRegisterButton();
     }
 
-
     @Then("check error reCaptcha massage {string}")
     public void checkErrorReCaptchaMassage(String massage) {
         Assert.assertEquals(newUserForm.getErrorReCaptchaMassage().getText(), massage, "Massage wasn't displayed");

@@ -37,7 +37,7 @@ Feature: tests for log in form
       | "testUser3" | "pass3333" |
 
   Scenario: Test with data table. Type username, password and click logIn Button. Check log in error massage.
-    Given log in 1:
+    Given log in 0:
       | username | password |
       | test0    | pss0     |
       | test1    | pss1     |
@@ -45,6 +45,8 @@ Feature: tests for log in form
     And click logIn button
     Then check error massage is visible
     And refresh page
+
+
 
 
 
