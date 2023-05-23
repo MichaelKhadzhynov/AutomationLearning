@@ -6,7 +6,7 @@ import io.gatling.javaapi.http.*;
 import static io.gatling.javaapi.core.CoreDsl.*;
 import static io.gatling.javaapi.http.HttpDsl.*;
 
-public class MyComputerSimulator extends Simulation {
+public class MyComputerSimulation extends Simulation {
 
     private final HttpProtocolBuilder httpProtocol = http
             .baseUrl("https://computer-database.gatling.io")
@@ -18,7 +18,7 @@ public class MyComputerSimulator extends Simulation {
             .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36");
 
     FeederBuilder.Batchable<String> feederBuilder =
-            csv("gatling_feeders/search.csv").random();
+            csv("gatling_feeders/gatling_computer_db/search.csv").random();
 
 
     ChainBuilder searchComputer =
@@ -49,7 +49,7 @@ public class MyComputerSimulator extends Simulation {
                     .pause(2);
 
     FeederBuilder.Batchable<String> createComputerFeeder =
-            csv("gatling_feeders/create_computer.csv").circular();
+            csv("gatling_feeders/gatling_computer_db/create_computer.csv").circular();
 
     ChainBuilder creatNewComputer =
             feed(createComputerFeeder)
