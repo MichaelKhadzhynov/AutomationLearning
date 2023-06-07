@@ -4,6 +4,8 @@ import io.cucumber.java.it.Ma;
 import io.gatling.javaapi.core.*;
 import io.gatling.javaapi.http.*;
 
+import javax.sql.ConnectionPoolDataSource;
+import java.sql.Connection;
 import java.time.Duration;
 import java.util.*;
 
@@ -125,6 +127,7 @@ public class DemostoreApiSimulation extends Simulation {
 
     private static class UserJourneys{
 
+
         private static final Duration MIN_PAUSE = Duration.ofMillis(200);
         private static final Duration MAX_PAUSE = Duration.ofSeconds(3);
         public static final ChainBuilder admin =
@@ -181,10 +184,24 @@ public class DemostoreApiSimulation extends Simulation {
 
     {
 
+        // Parallel
         setUp(
-                Scenarios.defaultScn.injectOpen(
-                        rampUsers(USER_COUNT).during(RAMP_DURATION))
-                        .protocols(HTTP_PROTOCOL));
+                Scenarios.defaultScn.injectOpen(rampUsers(USER_COUNT).during(RAMP_DURATION)),
+                Scenarios.noAdmin.injectOpen(rampUsers(5).during(Duration.ofSeconds(10))))
+                .protocols(HTTP_PROTOCOL);
+
+        // Sequential
+//        setUp(
+//                Scenarios.defaultScn.injectOpen(rampUsers(USER_COUNT).during(RAMP_DURATION)).protocols(HTTP_PROTOCOL)
+//                        .andThen(
+//                                Scenarios.noAdmin.injectOpen(rampUsers(5).during(Duration.ofSeconds(10)))
+//                                        .protocols(HTTP_PROTOCOL)));
+
+        // Single scenario
+//        setUp(
+//                Scenarios.defaultScn.injectOpen(
+//                        rampUsers(USER_COUNT).during(RAMP_DURATION))
+//                        .protocols(HTTP_PROTOCOL));
 
         //throttle simulation
 //        setUp(
